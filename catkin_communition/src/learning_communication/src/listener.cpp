@@ -12,6 +12,6 @@ int main(int argc, char **argv) {
 
     ros::Subscriber sub = n.subscribe("abc12345", 1000, chatterCallback);
 
-    ros::spin();
+    ros::spin();  // 当有消息到达，调用回调函数执行
     return 0;
 }
