@@ -1,0 +1,6 @@
+.git/
+*/build/*
+/devel
+**/.vscode/
+**/build/
+**/devel/
