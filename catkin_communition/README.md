@@ -2,14 +2,14 @@
 # 使用vscode打开本目录
 # 别忘了执行 source ./devel/setup.zsh
 
-# 设置需要编译的msg文件
-注意先后顺序：`find_package` -> `add_message_files` -> `generate_messages` -> `catkin_package`
+# 设置需要编译的srv文件
+注意先后顺序：`find_package` -> `add_service_files` -> `generate_messages` -> `catkin_package`
 
 ```cmake
 # CMakeLists.txt
-add_message_files(
+add_service_files(
   FILES
-  Person.msg
+  AddTwoInts.srv
 )
 
 generate_messages(
@@ -39,19 +39,15 @@ catkin_package(
 )
 ```
 
-# 编译、查询
+# 编译、查询 别忘了执行 source devel/setup.zsh
 ```shell
-➜  catkin_communition git:(learning_communication_custom_msg) ✗ catkin_make
+➜  catkin_communition git:(learning_communication_server_client) ✗ catkin_make
 ...
-➜  catkin_communition git:(learning_communication_custom_msg) ✗ rosmsg show Person
-[learning_communication/Person]:
-uint8 unknown=0
-uint8 male=1
-uint8 female=2
-string name
-uint8 sex
-uint8 age
+➜  catkin_communition git:(learning_communication_server_client) ✗ roscore
+➜  catkin_communition git:(learning_communication_server_client) ✗ rosrun learning_communication server
+[ INFO] [1699435608.133423838]: Ready to add two ints.
+[ INFO] [1699435611.879613527]: request: x=1, y=3
+[ INFO] [1699435611.879754017]: sending back response: [4]
+➜  catkin_communition git:(learning_communication_server_client) ✗ rosrun learning_communication client 1 3
+[ INFO] [1699435611.880204178]: Sum: 4
 ```
-# 运行 roscore
-# rosrun learning_communication listener
-# rosrun learning_communication talker
