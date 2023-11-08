@@ -5,4 +5,4 @@
 # 编译 catkin_make
 # 运行 roscore
 # rosrun learning_communication listener
-# rosrun learning_communication takler
+# rosrun learning_communication talker
