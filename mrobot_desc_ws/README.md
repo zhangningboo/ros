@@ -57,7 +57,7 @@ ERROR: Model Parsing the xml failed
 ### ArobotiX
 ```shell
 # 安装
-➜  urdf git:(mrobot_desc_ws) ✗ sudo apt install ros-kinect-arbotix 
+➜  urdf git:(mrobot_desc_ws) ✗ sudo apt install ros-kinetic-arbotix 
 # 或（源码安装启动时有些问题）
 ➜  workspace ✗ git clone https://github.com/vanadiumlabs/arbotix_ros.git
 ➜  workspace ✗ cd arbotix_ros && mkdir src && catkin_make
