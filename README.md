@@ -7,7 +7,7 @@
 ➜  src git:(main) ✗ catkin_init_workspace
 ➜  src git:(main) ✗ sed -i '' CMakeLists.txt
 # 创建包
-➜  src git:(main) ✗ catkin_create_package package_name
+➜  src git:(main) ✗ catkin_create_pkg package_name
 # 设置环境
 ➜  src git:(main) ✗ cd ..
 ➜  project_name git:(main) ✗ catkin_make
