@@ -15,7 +15,7 @@
 /usr/lib/python3.5/sitecustomize.py
 /etc/python2.7/sitecustomize.py
 /etc/python3.5/sitecustomize.py
-# 把找到的文件中，都加入内容：
+# 把找到的python2.7的文件中，都加入内容：
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -54,3 +54,16 @@ ERROR: Model Parsing the xml failed
 ➜  mrobot_desc_ws git:(mrobot_desc_ws) ✗ roslaunch mrobot_description display_mrobot_with_rplidar.launch
 ```
 
+### ArobotiX
+```shell
+# 安装
+➜  urdf git:(mrobot_desc_ws) ✗ sudo apt install ros-kinect-arbotix 
+# 或（源码安装启动时有些问题）
+➜  workspace ✗ git clone https://github.com/vanadiumlabs/arbotix_ros.git
+➜  workspace ✗ cd arbotix_ros && mkdir src && catkin_make
+➜  mrobot_desc_ws git:(mrobot_desc_ws) ✗ source ${arbotix_ros_path}/devel/setup.zsh
+# 配置文件：fake_mrobot_arbotix.yaml
+# launch文件：arbotix_mrobot_with_kinect.launch
+# 启动
+➜  mrobot_desc_ws git:(mrobot_desc_ws) ✗ roslaunch mrobot_description arbotix_mrobot_with_kinect.launch
+```

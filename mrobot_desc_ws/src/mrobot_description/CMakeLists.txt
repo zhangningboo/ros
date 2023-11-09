@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(mrobot_description)
-
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
@@ -10,6 +10,10 @@ project(mrobot_description)
 find_package(catkin REQUIRED COMPONENTS
   urdf
   xacro
+  # # 键盘控制
+  # geometry_msgs
+  # roscpp
+  # rospy
 )
 
 ## System dependencies are found with CMake's conventions
