@@ -38,3 +38,19 @@ ERROR: Model Parsing the xml failed
 
 - udrf: 配置机器人外观
 - urdf_to_graphiz: 查看节点连接信息
+
+### xacro
+用于简化、代码化urdf文件的配置，转换有以下两种方式：
+```shell
+➜  urdf git:(mrobot_desc_ws) ✗ rosrun xacro xacro.py mrobot.urdf.xacro > mrobot.urdf
+➜  urdf git:(mrobot_desc_ws) ✗ roslaunch mrobot_description display_mrobot.launch
+# 或
+
+# 加相机
+➜  urdf git:(mrobot_desc_ws) ✗ roslaunch mrobot_description display_mrobot_with_camera.launch
+# 加kinect
+➜  mrobot_desc_ws git:(mrobot_desc_ws) ✗ roslaunch mrobot_description display_mrobot_with_kinect.launch
+# 加雷达
+➜  mrobot_desc_ws git:(mrobot_desc_ws) ✗ roslaunch mrobot_description display_mrobot_with_rplidar.launch
+```
+
