@@ -2,7 +2,14 @@
 
 <robot name="mrobot_chassis"> 
   <!-- 底盘 -->  
-  <link name="base_link"> 
+  <link name="base_link">
+    <!-- 物理惯性属性 -->
+    <inertial>
+      <mass value="2" />
+      <origin xyz="0 0 0.0" />
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.5" />
+    </inertial>
+    <!-- 外观 -->
     <visual> 
       <!-- 空间位置和姿态 rpy的单位: 弧度 -->
       <origin>xyz="0 0 0" rpy="0 0 0"</origin>  
@@ -14,6 +21,13 @@
         <color rgba="1 0.4 0 1"/> 
       </material> 
     </visual> 
+    <!-- 碰撞属性 -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.005" radius="0.13"/>
+      </geometry>
+    </collision>
   </link>    
   <joint name="base_left_motor_joint" type="fixed">
     <!--关节的起点-->
