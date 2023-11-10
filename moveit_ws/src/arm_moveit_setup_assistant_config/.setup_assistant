@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: learning_moveit
+    relative_path: urdf/arm.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/arm.srdf
+  CONFIG:
+    author_name: zhangningboo_learn
+    author_email: zhangningbo21@mails.ucas.ac.cn
+    generated_timestamp: 1699608145
