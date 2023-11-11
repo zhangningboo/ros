@@ -82,12 +82,15 @@ controller_list:
 ```
 - MoveIt!
 ```shell
+➜  moveit_ws git:(moveit_ws) ✗ roslaunch learning_moveit arm_planning.launch
 ➜  script git:(moveit_ws) ✗ python moveit_fk_demo.py 
 ```
 
 ### MoveIt! 空间运动规划
 使用3维坐标的参数移动机械臂，如：向左平移30cm。
+只关注起始位姿和终端位姿，对中间的轨迹没有要求。
 ```shell
+➜  moveit_ws git:(moveit_ws) ✗ roslaunch learning_moveit arm_planning.launch
 ➜  script git:(moveit_ws) ✗ python moveit_ik_demo.py 
 ```
 步骤：
@@ -106,4 +109,12 @@ traj = arm.plan()
 arm.execute(traj)
 arm.shift_pose_target(1, -0.05, end_effector_link)
 arm.go()
+```
+
+### 笛卡儿运动规划
+从开始位姿到终端位姿的过程中，设定中间的轨迹形状。
+```shell
+➜  moveit_ws git:(moveit_ws) ✗ sudo apt install ros-kinetic-trac-ik-kinematics-plugin
+➜  moveit_ws git:(moveit_ws) ✗ roslaunch learning_moveit arm_planning_with_trail.launch
+➜  script git:(moveit_ws) ✗ python moveit_cartesian_demo.py 
 ```
