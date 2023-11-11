@@ -84,3 +84,26 @@ controller_list:
 ```shell
 ➜  script git:(moveit_ws) ✗ python moveit_fk_demo.py 
 ```
+
+### MoveIt! 空间运动规划
+使用3维坐标的参数移动机械臂，如：向左平移30cm。
+```shell
+➜  script git:(moveit_ws) ✗ python moveit_ik_demo.py 
+```
+步骤：
+- 首先需要创建规划组的控制对象；
+- 然后获取机器人的终端link名称；
+- 其次设置目标位姿对应的参考坐标系、起始位姿和终止位姿；
+- 最后进行规划并控制机器人运动。
+```python
+arm = moveit_commander.MoveGroupCommander('arm')
+end_effector_link = arm.get_end_effector_link()
+reference_frame = 'base_link'
+arm.set_pose_reference_frame(reference_frame)
+arm.set_start_state_to_current_state()
+arm.set_pose_target(target_pose, end_effector_link)
+traj = arm.plan()
+arm.execute(traj)
+arm.shift_pose_target(1, -0.05, end_effector_link)
+arm.go()
+```
