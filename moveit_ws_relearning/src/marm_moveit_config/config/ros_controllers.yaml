@@ -1,0 +1,44 @@
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: arm
+  joint_model_group_pose: home
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+    - joint5
+    - joint6
+    - finger_joint1
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  # name和action_ns组成控制器action接口的消息名，例如arm_controller插件的action接口就是:arm_controller/follow_joint_trajectory
+  - name: arm_controller  # 控制器插件的名称
+    action_ns: follow_joint_trajectory  # 控制器发布action消息的命名空间
+    type: FollowJointTrajectory  # 实现action的类型
+    default: true  # 是否为该规划组的默认控制器插件
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      
+  - name: gripper_controller
+    action_ns: gripper_action
+    type: GripperCommand  # 实现action的类型
+    default: true # 是否为该规划组的默认控制器插件
+    joints:
+      - finger_joint1
