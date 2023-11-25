@@ -59,10 +59,23 @@ $ roslaunch moveit_setup_assistant setup_assistant.launch
 ➜  ros git:(master) ✗ sudo apt install ros-kinetic-rqt ros-kinetic-rqt-common-plugins
 ```
 ##### 工具
-- $ rqt_console 日志可视化
-- $ rqt_graph   计算图
-- $ rqt_plot    数据绘图
-- $ rosrun rqt_reconfigure rqt_reconfigure 参数动态配置
+- $ rqt_console # 日志可视化
+- $ rqt_graph   # 计算图
+- $ rqt_plot    # 数据绘图
+- $ rosrun rqt_reconfigure rqt_reconfigure  # 参数动态配置
+- TF树
+    - rqt_tf_tree
+        - 实时工具，观察在Ros上被发布的坐标系树。
+        - $ rosrun rqt_tf_tree rqt_tf_tree  # 实时监看
+    - view_frames
+        - 连续采样5s获得的树的内容，并存成一个图片
+        - $ rosrun tf view_frames  # 生成图片, 连续采样5s
+        - $ evince frames.pdf  # 查看图片
+    - tf_echo
+        - 报告在ROS上任意两个坐标系发布的变换，查看指定参考系之间的变换关系
+        - $ tf_echo <source_frame> <target_frame>
+        - $ rosrun tf tf_echo [reference_frame] [target_frame]
+    - 还有好几种
 
 ### rviz 工具包
 ```shell
